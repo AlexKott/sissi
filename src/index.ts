@@ -1,8 +1,9 @@
 import Command, { flags } from '@oclif/command';
 
 import cmdNew from './cmdNew';
+import cmdStart from './cmdStart';
 
-export default class Sissi extends Command {
+export = class Sissi extends Command {
   static description = 'Scaffold your sissi project';
 
   static flags = {
@@ -24,7 +25,7 @@ export default class Sissi extends Command {
         cmdNew(projectName);
         break;
       case 'start':
-        this.log('Starting...');
+        cmdStart();
         break;
       case 'build':
         this.log('Building...');
