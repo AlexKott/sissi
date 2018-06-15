@@ -33,24 +33,26 @@ export = class Sissi extends Command {
   }
 
   _start() {
-    execFile(
-      `${process.cwd()}/node_modules/.bin/sissi-packs`,
-      { cwd: process.cwd() },
-      (err : any) => {
-        if (err) {
-          return console.log(err);
-        }
-        console.log('Development server running on port 3000');
-      }
-    );
-    execFile(
+    const saysChild = execFile(
       `${process.cwd()}/node_modules/.bin/sissi-says`,
-      { cwd: process.cwd() },
-      (err : any) => {
-        if (err) {
-          return console.log(err);
-        }
-        console.log('You can visit the sissi on port 3010');
+      { cwd: process.cwd(), shell: true }
+    );
+    saysChild.stdout.on('data', (data) => {
+      console.log(data.toString());
+    });
+    saysChild.stderr.on('data', (data) => {
+      console.log(data.toString());
+    });
+
+    const packsChild = execFile(
+      `${process.cwd()}/node_modules/.bin/sissi-packs`,
+      { cwd: process.cwd(), shell: true }
+    );
+    packsChild.stdout.on('data', (data) => {
+      console.log(data.toString());
+    });
+    packsChild.stderr.on('data', (data) => {
+      console.log(data.toString());
     });
   }
 }
