@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Page = ({
-    page,
-    sections,
-    content,
+  page,
+  sections,
+  content,
 }) => (
   <div>
     {sections.map(section => <Section key={section.id} {...section} />)}

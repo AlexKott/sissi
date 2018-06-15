@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Section = ({
-    sectionType,
-    content,
+  sectionType,
+  content,
 }) => (
   <section>
     <article dangerouslySetInnerHTML={{ __html: content }} />

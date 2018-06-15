@@ -1,7 +1,6 @@
+const { execFile } = require('child_process');
 import Command from '@oclif/command';
 import * as yeoman from 'yeoman-environment';
-
-import cmdStart from './cmdStart';
 
 export = class Sissi extends Command {
   static args = [
@@ -23,7 +22,7 @@ export = class Sissi extends Command {
         env.run('sissi:new');
         return;
       case 'start':
-        cmdStart();
+        this._start();
         return;
       case 'build':
         console.log('coming soon...');
@@ -31,5 +30,27 @@ export = class Sissi extends Command {
       default:
         return;
     }
+  }
+
+  _start() {
+    execFile(
+      `${process.cwd()}/node_modules/.bin/sissi-packs`,
+      { cwd: process.cwd() },
+      (err : any) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log('Development server running on port 3000');
+      }
+    );
+    execFile(
+      `${process.cwd()}/node_modules/.bin/sissi-says`,
+      { cwd: process.cwd() },
+      (err : any) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log('You can visit the sissi on port 3010');
+    });
   }
 }
