@@ -1,12 +1,14 @@
 import * as path from 'path';
 import * as Generator from 'yeoman-generator'
 
-import getTemplateMap from './templateMap';
-import { validateEmptyDir, validateNumber } from './validators';
+import { getCopyList, getTemplateList } from './fileLists';
+import * as v from './validators';
 
 export default class SissiGenerator extends Generator {
   amountOfPages : number = 3;
   projectName : string = '';
+  userName : string = 'admin';
+  password : string = 'abc123';
 
   async prompting() {
     const answers = await this.prompt([{
@@ -14,7 +16,19 @@ export default class SissiGenerator extends Generator {
       name: 'projectName',
       message: 'How should Sissi call your project?',
       default: 'myNewWebsite',
-      validate: validateEmptyDir,
+      validate: v.validateEmptyDir,
+    }, {
+      type: 'input',
+      name: 'userName',
+      message: 'Please enter the user name for the cms',
+      default: 'admin',
+      validate: v.validateNotEmpty,
+    }, {
+      type: 'input',
+      name: 'password',
+      message: 'Please enter the password for the cms',
+      default: 'abc123',
+      validate: v.validateNotEmpty,
     }, {
       type: 'confirm',
       name: 'isSinglePage',
@@ -30,7 +44,7 @@ export default class SissiGenerator extends Generator {
         name: 'amountOfPages',
         message: 'How many pages would you like to start with?',
         default: 3,
-        validate: validateNumber,
+        validate: v.validateNumber,
       });
 
       amountOfPages = Number(pagesAnswer.amountOfPages);
@@ -38,31 +52,38 @@ export default class SissiGenerator extends Generator {
 
     this.amountOfPages = amountOfPages;
     this.projectName = answers.projectName;
+    this.userName = answers.userName;
+    this.password = answers.password;
   }
 
   copyTemplates() {
     this.sourceRoot(path.join(__dirname, 'templates'))
     this.destinationRoot(path.join(process.cwd(), this.projectName));
-    const templateMap = getTemplateMap({ projectName: this.projectName });
+    const copyList = getCopyList();
+    const templateList = getTemplateList({
+      projectName: this.projectName,
+      userName: this.userName,
+      password: this.password,
+    });
 
     this.log('Setting up project...');
-    templateMap.forEach(template => {
+
+    copyList.forEach(fileName => {
+      this.fs.copy(
+        this.templatePath(fileName),
+        this.destinationPath(fileName),
+      );
+    });
+
+    templateList.forEach(template => {
       this.fs.copyTpl(
         this.templatePath(`${template.file}.ejs`),
         this.destinationPath(template.file),
         template.params,
       );
     });
+
+    this.log('Installing dependencies...');
+    this.npmInstall();
   }
-  //
-  // console.log(`Creating project ${projectName}`);
-  //
-  // const packageJson = mfs
-  //   .read(`${TEMP_DIR}/package.json`)
-  //   .replace('PROJECT_NAME', projectName);
-  //
-  // mfs.write(`${destDir}/package.json`, packageJson);
-  // mfs.commit(() => {
-  //   console.log('done');
-  // });
 }
