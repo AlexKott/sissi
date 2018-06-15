@@ -1,37 +1,35 @@
-import Command, { flags } from '@oclif/command';
+import Command from '@oclif/command';
+import * as yeoman from 'yeoman-environment';
 
-import cmdNew from './cmdNew';
 import cmdStart from './cmdStart';
 
 export = class Sissi extends Command {
-  static description = 'Scaffold your sissi project';
-
-  static flags = {
-    version: flags.version({char: 'v'}),
-    help: flags.help({char: 'h'}),
-  };
-
   static args = [
-    { name: 'command', options: ['new', 'start', 'build'], required: true },
-    { name: 'projectName' },
+    {
+      name: 'command',
+      options: ['new', 'start', 'build'],
+      required: true,
+      description: 'What do you want sissi to do?',
+    },
   ];
 
   async run() {
     const { args } = this.parse(Sissi);
-    const { command, projectName } = args;
+    const env = yeoman.createEnv();
 
-    switch(command) {
+    switch(args.command) {
       case 'new':
-        cmdNew(projectName);
-        break;
+        env.register(require.resolve('./generator'), 'sissi:new');
+        env.run('sissi:new');
+        return;
       case 'start':
         cmdStart();
-        break;
+        return;
       case 'build':
-        this.log('Building...');
-        break;
+        console.log('coming soon...');
+        return;
       default:
-        this.log(`Please specify, what you want sissi to do.`);
+        return;
     }
   }
 }
