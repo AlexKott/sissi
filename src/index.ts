@@ -1,4 +1,4 @@
-const { execFile } = require('child_process');
+import * as path from 'path';
 import Command from '@oclif/command';
 import * as yeoman from 'yeoman-environment';
 
@@ -6,7 +6,7 @@ export = class Sissi extends Command {
   static args = [
     {
       name: 'command',
-      options: ['new', 'start', 'build'],
+      options: ['new', 'start', 'move', 'build'],
       required: true,
       description: 'What do you want sissi to do?',
     },
@@ -24,6 +24,9 @@ export = class Sissi extends Command {
       case 'start':
         this._start();
         return;
+      case 'move':
+        this._move();
+        return;
       case 'build':
         console.log('coming soon...');
         return;
@@ -33,26 +36,11 @@ export = class Sissi extends Command {
   }
 
   _start() {
-    const saysChild = execFile(
-      `${process.cwd()}/node_modules/.bin/sissi-says`,
-      { cwd: process.cwd(), shell: true }
-    );
-    saysChild.stdout.on('data', (data) => {
-      console.log(data.toString());
-    });
-    saysChild.stderr.on('data', (data) => {
-      console.log(data.toString());
-    });
+    require(path.join(__dirname, '../node_modules/sissi-says/api-build'));
+    require(path.join(__dirname, '../node_modules/sissi-packs/lib'))();
+  }
 
-    const packsChild = execFile(
-      `${process.cwd()}/node_modules/.bin/sissi-packs`,
-      { cwd: process.cwd(), shell: true }
-    );
-    packsChild.stdout.on('data', (data) => {
-      console.log(data.toString());
-    });
-    packsChild.stderr.on('data', (data) => {
-      console.log(data.toString());
-    });
+  _move() {
+    require(path.join(__dirname, '../node_modules/sissi-moves/lib'))();
   }
 }
