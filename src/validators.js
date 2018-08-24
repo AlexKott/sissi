@@ -1,5 +1,5 @@
-import * as path from 'path';
-import * as fs from 'fs';
+import path from 'path';
+import fs from 'fs';
 
 export function validateNotEmpty(input) {
   return input.trim() !== '' ? true : 'It mustn\'t be empty!';

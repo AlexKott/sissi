@@ -1,14 +1,18 @@
-import * as path from 'path';
-import * as Generator from 'yeoman-generator'
+import path from 'path';
+import Generator from 'yeoman-generator'
 
 import { getCopyList, getTemplateList } from './fileLists';
 import * as v from './validators';
 
 export default class SissiGenerator extends Generator {
-  amountOfPages = 3;
-  projectName = '';
-  userName = 'admin';
-  password = 'abc123';
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.amountOfPages = 3;
+    this.projectName = '';
+    this.userName = '';
+    this.password = '';
+  }
 
   async prompting() {
     const answers = await this.prompt([{

@@ -27,8 +27,9 @@ module.exports = function run() {
       return;
 
     case 'build':
-      console.log('coming soon...');
+      build();
       return;
+
     default:
       return;
   }
@@ -41,4 +42,8 @@ function start() {
 
 function move() {
   require(path.join(__dirname, '../node_modules/sissi-moves/lib'))();
+}
+
+function build() {
+  require(path.join(__dirname, '../node_modules/sissi-snaps/lib'))();
 }
