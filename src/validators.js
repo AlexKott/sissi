@@ -1,15 +1,15 @@
 import * as path from 'path';
 import * as fs from 'fs';
 
-export function validateNotEmpty(input : string) {
+export function validateNotEmpty(input) {
   return input.trim() !== '' ? true : 'It mustn\'t be empty!';
 }
 
-export function validateNumber(input : string) {
+export function validateNumber(input) {
   return !!Number(input) ? true : 'Please enter a number!';
 }
 
-export function validateEmptyDir(dirName : string) {
+export function validateEmptyDir(dirName) {
   const destDir = path.join(process.cwd(), dirName);
 
   if (fs.existsSync(destDir)) {

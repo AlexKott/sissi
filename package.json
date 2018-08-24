@@ -1,16 +1,13 @@
 {
   "name": "sissi",
   "description": "The only thing you'll need for creating websites with sissi",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "Alex Kott @AlexKott",
   "bin": {
     "sissi": "./bin/run"
   },
   "bugs": "https://github.com/square-a/sissi/issues",
   "dependencies": {
-    "@oclif/command": "^1.4.33",
-    "@oclif/config": "^1.6.30",
-    "@oclif/plugin-help": "^2.0.5",
     "fs-extra": "3.0.1",
     "sissi-moves": "^0.5.0",
     "sissi-packs": "^0.2.3",
@@ -20,17 +17,15 @@
     "yeoman-generator": "^2.0.5"
   },
   "devDependencies": {
-    "@oclif/tslint": "^1.1.2",
-    "@types/chai": "^4.1.4",
-    "@types/mem-fs": "^1.1.1",
-    "@types/mem-fs-editor": "^4.0.1",
-    "@types/mocha": "^5.2.2",
-    "@types/node": "^10.3.3",
-    "@types/yeoman-generator": "^2.0.3",
-    "ts-node": "^6.1.1",
-    "tslib": "^1.9.2",
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.2"
+    "@babel/polyfill": "^7.0.0-rc.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   },
   "engines": {
     "node": ">=8.0.0"
@@ -47,12 +42,9 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
-  "oclif": {
-    "bin": "sissi"
-  },
   "repository": "square-a/sissi",
   "scripts": {
-    "prepare": "rm -rf lib && tsc && cp -r src/templates lib/templates"
-  },
-  "types": "lib/index.d.ts"
+    "start": "./node_modules/.bin/babel ./src/index.js -o ./lib/index.js --watch",
+    "prepare": "rm -rf ./lib && mkdir ./lib && ./node_modules/.bin/babel ./src/index.js -o ./lib/index.js"
+  }
 }

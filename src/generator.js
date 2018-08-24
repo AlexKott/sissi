@@ -5,10 +5,10 @@ import { getCopyList, getTemplateList } from './fileLists';
 import * as v from './validators';
 
 export default class SissiGenerator extends Generator {
-  amountOfPages : number = 3;
-  projectName : string = '';
-  userName : string = 'admin';
-  password : string = 'abc123';
+  amountOfPages = 3;
+  projectName = '';
+  userName = 'admin';
+  password = 'abc123';
 
   async prompting() {
     const answers = await this.prompt([{
