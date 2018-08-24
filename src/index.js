@@ -37,7 +37,7 @@ module.exports = function run() {
 
 function start() {
   require(path.join(__dirname, '../node_modules/sissi-says/api-build'));
-  require(path.join(__dirname, '../node_modules/sissi-packs/lib'))();
+  require(path.join(__dirname, '../node_modules/sissi-packs/src'))();
 }
 
 function move() {
