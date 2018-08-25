@@ -8,7 +8,7 @@ export default class SissiGenerator extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.amountOfPages = 3;
+    this.isSinglePage = false;
     this.projectName = '';
     this.userName = '';
     this.password = '';
@@ -40,27 +40,15 @@ export default class SissiGenerator extends Generator {
       default: false,
     }]);
 
-    let amountOfPages = 1;
-
-    if (!answers.isSinglePage) {
-      const pagesAnswer = await this.prompt({
-        type: 'input',
-        name: 'amountOfPages',
-        message: 'How many pages would you like to start with?',
-        default: 3,
-        validate: v.validateNumber,
-      });
-
-      amountOfPages = Number(pagesAnswer.amountOfPages);
-    }
-
-    this.amountOfPages = amountOfPages;
     this.projectName = answers.projectName;
     this.userName = answers.userName;
     this.password = answers.password;
+    this.isSinglePage = answers.isSinglePage;
   }
 
-  copyTemplates() {
+  writing() {
+    this.log('Setting up project...');
+
     this.sourceRoot(path.join(__dirname, 'templates'))
     this.destinationRoot(path.join(process.cwd(), this.projectName));
     const copyList = getCopyList();
@@ -68,26 +56,28 @@ export default class SissiGenerator extends Generator {
       projectName: this.projectName,
       userName: this.userName,
       password: this.password,
+      isSinglePage: this.isSinglePage,
     });
 
-    this.log('Setting up project...');
-
-    copyList.forEach(fileName => {
+    copyList.forEach((fileName, index) => {
       this.fs.copy(
         this.templatePath(fileName),
         this.destinationPath(fileName),
       );
     });
 
-    templateList.forEach(template => {
+    templateList.forEach((template, index) => {
       this.fs.copyTpl(
         this.templatePath(`${template.file}.ejs`),
         this.destinationPath(template.file),
         template.params,
       );
     });
+  }
 
-    this.log('Installing dependencies...');
-    this.npmInstall();
+  install() {
+    console.log('installing');
+    // sissi moves -> create structure hash
+    // this.npmInstall();
   }
 }
