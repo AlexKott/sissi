@@ -2,6 +2,10 @@ import '@babel/polyfill';
 import path from 'path';
 import yeoman from 'yeoman-environment';
 
+import storeSissiModules from './storeSissiModules';
+
+storeSissiModules();
+
 module.exports = function run() {
   const args = process.argv.reduce((acc, arg, index) => {
     if (index === 2) {
@@ -18,8 +22,8 @@ module.exports = function run() {
       env.run('sissi:new');
       return;
 
-    case 'start':
-      start();
+    case 'dev':
+      dev();
       return;
 
     case 'move':
@@ -35,15 +39,15 @@ module.exports = function run() {
   }
 }
 
-function start() {
+function dev() {
   require(path.join(__dirname, '../node_modules/sissi-says/api-build'));
-  require(path.join(__dirname, '../node_modules/sissi-packs/src'))();
+  require(global.sissiPacks)();
 }
 
 function move() {
-  require(path.join(__dirname, '../node_modules/sissi-moves/lib'))();
+  require(global.sissiMoves)();
 }
 
 function build() {
-  require(path.join(__dirname, '../node_modules/sissi-snaps/lib'))();
+  require(global.sissiSnaps)();
 }

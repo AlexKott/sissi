@@ -76,8 +76,9 @@ export default class SissiGenerator extends Generator {
   }
 
   install() {
-    console.log('installing');
-    // sissi moves -> create structure hash
-    // this.npmInstall();
+    console.log('Installing dependencies');
+
+    require(global.sissiMoves)(['hash'], { save: true });
+    this.npmInstall();
   }
 }
