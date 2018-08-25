@@ -33,5 +33,11 @@ export function getTemplateList(options) {
         IS_SINGLE_PAGE: options.isSinglePage,
       },
     },
+    {
+      file: 'src/styles/sissi.scss',
+      params: {
+        IS_SINGLE_PAGE: options.isSinglePage,
+      },
+    },
   ];
 }
