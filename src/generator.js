@@ -1,3 +1,4 @@
+import { execSync } from 'child_process';
 import path from 'path';
 import Generator from 'yeoman-generator'
 
@@ -60,9 +61,15 @@ export default class SissiGenerator extends Generator {
     });
 
     copyList.forEach((fileName, index) => {
+      let destName = fileName;
+
+      if (fileName.substring(0, 2) === '_.') {
+        destName = fileName.substring(1);
+      }
+
       this.fs.copy(
         this.templatePath(fileName),
-        this.destinationPath(fileName),
+        this.destinationPath(destName),
       );
     });
 
@@ -79,6 +86,16 @@ export default class SissiGenerator extends Generator {
     console.log('Installing dependencies');
 
     require(global.sissiMoves)(['hash'], { save: true });
+
     this.npmInstall();
+  }
+
+  end() {
+    try {
+      execSync('git init', { stdio: 'ignore' });
+      execSync('git add -A', { stdio: 'ignore' });
+      execSync('git commit -m "Initial commit"', { stdio: 'ignore' });
+
+    } catch(e) {}
   }
 }
