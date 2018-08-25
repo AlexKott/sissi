@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "logo": "ZftlMl.svg",
+    "title": "<%=PROJECT_NAME%>",
+    "welcomeText": "It's gonna be fantastic, I can feel it."
+  },
+
+  "<% if (!IS_SINGLE_PAGE) { %>"
+  "pages": [
+    {
+      "id": "dtb9ikg",
+      "pageType": "standard",
+      "sections": [
+        "mu3v3n2",
+        "3qoeqgy"
+      ],
+      "title": "About sissi",
+      "path": ""
+    },
+    {
+      "id": "3nsk031",
+      "pageType": "standard",
+      "sections": [
+        "i3ojloy"
+      ],
+      "title": "About You",
+      "path": "about-you"
+    }
+  ],
+  "%> } %>"
+
+  "sections": {
+    "mu3v3n2": {
+      "sectionType": "standard",
+      "title": "sissi, pleased to meet you.",
+      "sectionBody": "<p>I&#39;m your simple static sites generator and happy to help if you need me. Please visit me over at <a href=\"https:\/\/github.com\/square-a\/sissi\">Github<\/a> for support.<\/p>\n<p>Now, let&#39;s get to work and have some fun!<\/p>\n"
+    },
+    "<% if (!IS_SINGLE_PAGE) { %>"
+    "i3ojloy": {
+      "sectionType": "standard",
+      "title": "Hey, I like you",
+      "sectionBody": "<p>Has anybody told you that you&#39;re awesome today? You&#39;re awesome! And you&#39;re doing great work. You being here and reading this proves it.<\/p>\n<p>(Ok, maybe not the reading part. Time to write your own stuff now, don&#39;t you think?)<\/p>\n"
+    },
+    "%> } %>"
+    "3qoeqgy": {
+      "sectionType": "standard",
+      "title": "My folks",
+      "sectionBody": "<p><img src=\"\/images\/ZcMjgH.svg\" alt=\"A square logo\"><\/p>\n<p>While we&#39;re at introductions \u2013 why not say hi to my lovely creators at <a href=\"https:\/\/a-square.eu\">A square<\/a>?<\/p>\n"
+    }
+  }
+}
