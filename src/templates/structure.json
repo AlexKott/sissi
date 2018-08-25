@@ -1,0 +1,55 @@
+{
+  "settings": {
+    "projectName": "<%=PROJECT_NAME%>",
+    "language": "en",
+    "maxPages": "<%= IS_SINGLE_PAGE ? 1 : 5 %>",
+    "minPages": "<%= IS_SINGLE_PAGE ? 1 : 2 %>",
+    "maxSectionsPerPage": 4,
+    "minSectionsPerPage": 1
+  },
+  "fields": {
+    "<% if (!IS_SINGLE_PAGE) { %>"
+    "path": {
+      "label": "Path",
+      "placeholder": "about-me",
+      "type": "string"
+    },
+    "%> } %>"
+    "logo": {
+      "label": "Logo",
+      "type": "image"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Your title",
+      "type": "string"
+    },
+    "welcomeText": {
+      "label": "Welcome Text",
+      "placeholder": "Meet sissi!",
+      "type": "string"
+    },
+    "sectionBody": {
+      "label": "Your contents",
+      "placeholder": "Please add your content using markdown",
+      "type": "markdown"
+    }
+  },
+  "meta": {
+    "fields": ["logo", "title", "welcomeText"]
+  },
+  "<% if (!IS_SINGLE_PAGE) { %>"
+  "pages": {
+    "standard": {
+      "label": "Standard page",
+      "fields": ["title", "path"]
+    }
+  },
+  "%> } %>"
+  "sections": {
+    "standard": {
+      "label": "Standard section",
+      "fields": ["title", "sectionBody"]
+    }
+  }
+}

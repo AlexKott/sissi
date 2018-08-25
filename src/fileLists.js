@@ -30,6 +30,13 @@ export function getTemplateList(options) {
       },
     },
     {
+      file: 'structure.json',
+      params: {
+        PROJECT_NAME: options.projectName,
+        IS_SINGLE_PAGE: options.isSinglePage,
+      },
+    },
+    {
       file: 'public/index.html',
       params: {
         PROJECT_NAME: options.projectName,
