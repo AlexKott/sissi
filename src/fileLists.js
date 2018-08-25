@@ -2,7 +2,6 @@ export function getCopyList() {
   return [
     'public/favicon.png',
     'src/index.js',
-    'src/components/Page.js',
     'src/components/Section.js',
   ];
 }
@@ -26,6 +25,12 @@ export function getTemplateList(options) {
       file: 'public/index.html',
       params: {
         PROJECT_NAME: options.projectName,
+      },
+    },
+    {
+      file: 'src/components/Page.js',
+      params: {
+        IS_SINGLE_PAGE: options.isSinglePage,
       },
     },
   ];
