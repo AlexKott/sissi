@@ -1,11 +1,17 @@
 import React from 'react';
 
 const Section = ({
-  sectionType,
-  content,
+  sectionBody,
+  title,
 }) => (
-  <section>
-    <article dangerouslySetInnerHTML={{ __html: content }} />
+  <section className='sissi-section'>
+
+    <h3 className='sissi-section__title'>{title}</h3>
+    <article
+      dangerouslySetInnerHTML={{ __html: sectionBody }}
+      className='sissi-section__body'
+    />
+
   </section>
 );
 
