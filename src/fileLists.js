@@ -1,6 +1,7 @@
 export function getCopyList() {
   return [
     'public/favicon.png',
+    'public/images',
     'src/index.js',
     'src/components/Section.js',
   ];
