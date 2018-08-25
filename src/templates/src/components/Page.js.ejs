@@ -15,7 +15,7 @@ const Page = ({
     </h1>
     <h2 className='sissi-heading'>{content.meta.welcomeText}</h2>
 
-    <% if (!IS_SINGLE_PAGE) { %>
+    <%_ if (!IS_SINGLE_PAGE) { _%>
     <nav className='sissi-nav'>
       {content.pages.map(page => (
         <SissiLink
@@ -27,8 +27,8 @@ const Page = ({
         >{page.title}</SissiLink>
       ))}
     </nav>
-    <% } %>
-
+    
+    <%_ } _%>
     <div className='sissi-wrapper'>
       {sections.map(section => <Section key={section.id} {...section} />)}
     </div>
