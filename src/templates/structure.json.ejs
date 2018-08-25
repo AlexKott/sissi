@@ -8,13 +8,13 @@
     "minSectionsPerPage": 1
   },
   "fields": {
-    "<% if (!IS_SINGLE_PAGE) { %>"
+    <% if (!IS_SINGLE_PAGE) { %>
     "path": {
       "label": "Path",
       "placeholder": "about-me",
       "type": "string"
     },
-    "%> } %>"
+    <% } %>
     "logo": {
       "label": "Logo",
       "type": "image"
@@ -38,14 +38,14 @@
   "meta": {
     "fields": ["logo", "title", "welcomeText"]
   },
-  "<% if (!IS_SINGLE_PAGE) { %>"
+  <% if (!IS_SINGLE_PAGE) { %>
   "pages": {
     "standard": {
       "label": "Standard page",
       "fields": ["title", "path"]
     }
   },
-  "%> } %>"
+  <% } %>
   "sections": {
     "standard": {
       "label": "Standard section",
