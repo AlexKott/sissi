@@ -18,7 +18,7 @@ export default class SissiGenerator extends Generator {
     const answers = await this.prompt([{
       type: 'input',
       name: 'projectName',
-      message: 'How should Sissi call your project?',
+      message: 'How should sissi call your project?',
       default: 'myNewWebsite',
       validate: v.validateEmptyDir,
     }, {

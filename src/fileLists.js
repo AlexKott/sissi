@@ -18,8 +18,8 @@ export function getTemplateList(options) {
     {
       file: 'config.json',
       params: {
-        USER_NAME: options.userName,
         PASSWORD: options.password,
+        USER_NAME: options.userName,
       },
     },
     {
