@@ -1,6 +1,7 @@
 export function getCopyList() {
   return [
     '_.gitignore',
+    '_.sissi',
     'public/favicon.png',
     'public/images',
     'src/index.js',

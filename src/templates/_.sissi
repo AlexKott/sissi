@@ -1,0 +1,9 @@
+{
+  "buildDir": "build",
+
+  "cmsPort": 3010,
+  "devPort": 3000,
+  "snapsPort": 3020,
+
+  "snapshotDelay": 300
+}

@@ -1,53 +1,36 @@
-import '@babel/polyfill';
+import { execFile } from 'child_process';
 import path from 'path';
 import yeoman from 'yeoman-environment';
 
-import storeSissiModules from './storeSissiModules';
+import * as commands from './commands';
 
-storeSissiModules();
-
-module.exports = function run() {
-  const args = process.argv.reduce((acc, arg, index) => {
-    if (index === 2) {
-      acc.command = arg;
-    }
-    return acc;
-  }, {});
-
+module.exports = function run(args, flags) {
+  const [ command ] = args;
   const env = yeoman.createEnv();
 
-  switch(args.command) {
+  switch(command) {
     case 'new':
       env.register(require.resolve('./generator'), 'sissi:new');
       env.run('sissi:new');
       return;
 
     case 'dev':
-      dev();
+      commands.dev();
       return;
 
     case 'move':
-      move();
+      commands.move();
       return;
 
     case 'build':
-      build();
+      commands.build();
+      return;
+
+    case 'start':
+      commands.start();
       return;
 
     default:
       return;
   }
-}
-
-function dev() {
-  require(path.join(__dirname, '../node_modules/sissi-says/api-build'));
-  require(global.sissiPacks)();
-}
-
-function move() {
-  require(global.sissiMoves)();
-}
-
-function build() {
-  require(global.sissiSnaps)();
 }

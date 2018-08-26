@@ -4,6 +4,7 @@ node_modules
 
 /build
 /public/images
+/tmp
 /config.json
 /content.json
 /content.json.backup
