@@ -4,7 +4,16 @@
     "title": "<%=PROJECT_NAME%>",
     "welcomeText": "It's gonna be fantastic, I can feel it."
   },
-  <%_ if (!IS_SINGLE_PAGE) { _%>
+  <%_ if (IS_SINGLE_PAGE) { _%>
+  "pages": [
+    {
+      "id": "xorh94f",
+      "pageType": "singlePage",
+      "path": "",
+      "sections": ["mu3v3n2", "3qoeqgy"]
+    }
+  ],
+  <%_ } else { _%>
   "pages": [
     {
       "id": "dtb9ikg",
