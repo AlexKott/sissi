@@ -3,10 +3,9 @@ import path from 'path';
 
 const defaultOptions = {
   buildDir: 'build',
+  tmpDir: 'tmp',
   cmsPort: 3010,
   devPort: 3000,
-  snapsPort: 3020,
-  snapshotDelay: 700,
 };
 
 export default function gatherOptions() {
@@ -14,13 +13,15 @@ export default function gatherOptions() {
 
   try {
     const optionsFile = fs.readFileSync(path.join(process.cwd(), '.sissi'));
-    const options = {
+    options = {
       ...defaultOptions,
       ...JSON.parse(optionsFile),
     };
+
   } catch(error) {
     console.log('Couldn\'t read your .sissi file. Please make sure it exists and is readable');
-  }
 
-  return options;
+  } finally {
+    return options;
+  }
 }

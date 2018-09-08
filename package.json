@@ -27,7 +27,7 @@
     "sissi-moves": "^0.5.3",
     "sissi-packs": "^0.3.4",
     "sissi-says": "^0.4.1",
-    "sissi-snaps": "^1.4.1",
+    "sissi-snaps": "^1.5.0",
     "yeoman-environment": "^2.2.0",
     "yeoman-generator": "^3.1.1"
   },
