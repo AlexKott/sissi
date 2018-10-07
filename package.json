@@ -25,7 +25,7 @@
     "minimist": "^1.2.0",
     "rimraf": "^2.6.2",
     "sissi-moves": "^0.6.0",
-    "sissi-packs": "^0.3.4",
+    "sissi-packs": "^0.3.5",
     "sissi-says": "^0.5.5",
     "sissi-snaps": "^1.5.0",
     "yeoman-environment": "^2.2.0",
