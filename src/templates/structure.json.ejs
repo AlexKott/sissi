@@ -1,11 +1,7 @@
 {
   "settings": {
     "projectName": "<%=PROJECT_NAME%>",
-    "language": "en",
-    "maxPages": "<%= IS_SINGLE_PAGE ? 1 : 5 %>",
-    "minPages": "<%= IS_SINGLE_PAGE ? 1 : 2 %>",
-    "maxSectionsPerPage": 4,
-    "minSectionsPerPage": 1
+    "language": "en"
   },
   "fields": {
     <%_ if (!IS_SINGLE_PAGE) { _%>
@@ -35,14 +31,18 @@
       "type": "markdown"
     }
   },
-  "meta": {
-    "fields": ["logo", "title", "welcomeText"]
+  "global": {
+    "fields": ["logo", "title", "welcomeText"],
+    "maxItems": "<%= IS_SINGLE_PAGE ? 1 : 5 %>",
+    "minItems": "<%= IS_SINGLE_PAGE ? 1 : 2 %>"
   },
   <%_ if (!IS_SINGLE_PAGE) { _%>
   "pages": {
     "standard": {
       "label": "Standard page",
-      "fields": ["title", "path"]
+      "fields": ["title", "path"],
+      "maxItems": 4,
+      "minItems": 1
     }
   },
   <%_ } _%>
