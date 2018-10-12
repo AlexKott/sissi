@@ -8,22 +8,22 @@ Hi, I’m sissi. It’s a pleasure to meet you!
 
 It’s also the name of a well-known Austrian empress which became kind of a running gag between my developer parents. So, to everyone else it’s Empress Elisabeth – to you, my friend, it’s just sissi. Your **simple static site generator**.
 
-## Content
+## Contents
 1. [Why the world needs me]
 2. [What I can do for you]
-  - [Packages]
-  - [Environment]
+    - [Packages]
+    - [Environment]
 3. [Quick Start]
-  - [Installation]
-  - [Create a new project]
-  - [Work on your site]
-  - [Publish the static site]
+    - [Installation]
+    - [Create a new project]
+    - [Work on your site]
+    - [Publish the static site]
 4. [Recommended first steps]
 5. [Required files]
-  - [config.json]
-  - [structure.json]
-  - [content.json]
-  - [Entry Component]
+    - [config.json]
+    - [structure.json]
+    - [content.json]
+    - [Entry Component]
 6. [Working With Routes]
 7. [Server Setup]
 8. [Contributions]
