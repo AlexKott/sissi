@@ -8,6 +8,27 @@ Hi, I’m sissi. It’s a pleasure to meet you!
 
 It’s also the name of a well-known Austrian empress which became kind of a running gag between my developer parents. So, to everyone else it’s Empress Elisabeth – to you, my friend, it’s just sissi. Your **simple static site generator**.
 
+## Content
+1. [Why the world needs me]
+2. [What I can do for you]
+  1. [Packages]
+  2. [Environment]
+3. [Quick Start]
+  1. [Installation]
+  2. [Create a new project]
+  3. [Work on your site]
+  4. [Publish the static site]
+4. [Recommended first steps]
+5. [Required files]
+  1. [config.json]
+  2. [structure.json]
+  3. [content.json]
+  4. [Entry Component]
+6. [Working With Routes]
+7. [Server Setup]
+8. [Contributions]
+9. [My folks]
+
 ## Why the world needs me
 [Another](https://jekyllrb.com/) [static](https://www.gatsbyjs.org/docs/) [site](http://gohugo.io/) [generator](https://www.getlektor.com/), you may wonder? Well, yes.
 
@@ -349,7 +370,7 @@ I am working on writing full contribution guidelines and hope you'll check back 
 
 ## My folks
 
-[<img src='/src/templates/public/images/a-square.svg'  width='160px' />](A square)
+<img src='/src/templates/public/images/a-square.svg'  width='160px' />
 
 So, now that we’ve met and I’ve told you so much about me please let me introduce you to my lovely creators. Head over to [A square] to say hi and see what else they do when they’re not busy tending to me!
 
@@ -367,15 +388,28 @@ See you around.
 [sissi-moves]: https://github.com/square-a/sissi-moves
 [sissi-packs]: https://github.com/square-a/sissi-packs
 
-[Quick Start]:link
-[Recommended First Steps]:link
-[Contributions]:link
-[config.json]:link
-[structure.json]:link
-[content.json]:link
-[Entry Component]:link
-[settings]:link
-[fields]:link
-[global]:link
-[pages]:link
-[sections]:link
+[Why the world needs me]:#why-the-world-needs-me
+[What I can do for you]:#what-i-can-do-for-you
+[Packages]:#packages
+[Environment]:#environment
+[Quick Start]:#quick-start
+[Installation]:#installation
+[Create a new project]:#create-a-new-project
+[Work on your site]:#work-on-your-site
+[Publish the static site]:#publish-the-static-site
+[Recommended first steps]:#recommended-first-steps
+[Required files]:#required-files
+[config.json]:#1-configjson
+[structure.json]:#2-structurejson
+[content.json]:#3-contentjson
+[Entry Component]:#4-entry-component
+[Working With Routes]:#working-with-routes
+[Server Setup]:#server-setup
+[Contributions]:#contributions
+[My Folks]:#my-folks
+
+[settings]:#settings
+[fields]:#fields
+[global]:#global
+[pages]:#pages
+[sections]:#sections
