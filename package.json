@@ -21,13 +21,14 @@
   "bugs": "https://github.com/square-a/sissi/issues",
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.2",
+    "chalk": "^2.4.1",
     "fs-extra": "3.0.1",
     "minimist": "^1.2.0",
     "rimraf": "^2.6.2",
     "sissi-moves": "^0.6.2",
-    "sissi-packs": "^0.3.7",
+    "sissi-packs": "^0.3.8",
     "sissi-says": "^0.5.7",
-    "sissi-snaps": "^1.5.0",
+    "sissi-snaps": "^1.5.1",
     "yeoman-environment": "^2.2.0",
     "yeoman-generator": "^3.1.1"
   },

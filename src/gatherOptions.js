@@ -19,7 +19,7 @@ export default function gatherOptions() {
     };
 
   } catch(error) {
-    console.log('Couldn\'t read your .sissi file. Please make sure it exists and is readable');
+    console.log('Couldn\'t read your .sissi file. Using default settings.');
 
   } finally {
     return options;
