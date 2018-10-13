@@ -1,7 +1,7 @@
 {
   "name": "sissi",
   "description": "The only thing you'll need for creating websites with sissi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "GPL-3.0-or-later",
   "repository": "square-a/sissi",
   "author": "A Square",
@@ -27,7 +27,7 @@
     "rimraf": "^2.6.2",
     "sissi-moves": "1.0.0",
     "sissi-packs": "1.0.0",
-    "sissi-says": "1.0.0",
+    "sissi-says": "1.0.1",
     "sissi-snaps": "2.0.0",
     "yeoman-environment": "^2.2.0",
     "yeoman-generator": "^3.1.1"
