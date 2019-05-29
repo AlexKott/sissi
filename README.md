@@ -1,3 +1,8 @@
+# DEPRECATED
+This sissi package is deprecated and will no longer be maintained. Please use [sissi-core](https://github.com/square-a/sissi-core) and [sissi-cli](https://github.com/square-a/sissi-cli) instead.
+
+See you there!
+
 # sissi – simple static sites
 
 <img src='/src/templates/public/images/sissi.svg'  width='160px' />
